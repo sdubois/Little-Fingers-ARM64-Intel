@@ -44,6 +44,10 @@ make signing-cert  # create the local signing certificate (once)
 
 The built app lands in `build/DerivedData/Build/Products/<Configuration>/Little Fingers.app`. You can also open `Little Fingers.xcodeproj` in Xcode and run the **Little Fingers** scheme.
 
+### Releases
+
+Pushing a version tag (for example `git tag v1.3 && git push origin v1.3`) runs the **Release** GitHub Actions workflow. It builds the app and publishes a GitHub release with `Little-Fingers-<tag>.zip` and `Little-Fingers-<tag>.dmg` attached. CI builds are signed ad hoc and aren't notarized, so on first launch users need to allow the app under **System Settings → Privacy & Security → Open Anyway**.
+
 ### Code signing and Accessibility
 
 macOS ties the Accessibility permission to the app's code signature. To keep the permission across rebuilds, create a local signing certificate once:
